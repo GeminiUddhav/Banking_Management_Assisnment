@@ -71,14 +71,14 @@ public class UserServicesImplementationTest {
         existingUser.setUserId(userId);
         Users updatedUser = new Users();
         updatedUser.setUserId(userId);
-        updatedUser.setFirstName("John");
-        updatedUser.setLastName("Doe");
+        updatedUser.setFirstName("Uddhav");
+        updatedUser.setLastName("Rohan");
         when(userDao.findById(userId)).thenReturn(Optional.of(existingUser));
         when(userDao.save(updatedUser)).thenReturn(updatedUser);
         Users result = userServices.updateUserDetails(userId, updatedUser);
         assertNotNull(result);
-        assertEquals("John", result.getFirstName());
-        assertEquals("Doe", result.getLastName());
+        assertEquals("Uddhav", result.getFirstName());
+        assertEquals("Rohan", result.getLastName());
         verify(userDao, times(1)).findById(userId);
         verify(userDao, times(1)).save(updatedUser);
     }
@@ -88,8 +88,8 @@ public class UserServicesImplementationTest {
         int userId = 1;
         Users updatedUser = new Users();
         updatedUser.setUserId(userId);
-        updatedUser.setFirstName("John");
-        updatedUser.setLastName("Doe");
+        updatedUser.setFirstName("Uddhav");
+        updatedUser.setLastName("Rohan");
         when(userDao.findById(userId)).thenReturn(Optional.empty());
         Users result = userServices.updateUserDetails(userId, updatedUser);
         assertNull(result);

@@ -17,7 +17,6 @@ import org.springframework.test.context.TestPropertySource;
 
 import java.sql.Date;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @DataJpaTest
@@ -25,7 +24,6 @@ import java.util.List;
 @TestPropertySource(locations = "classpath:test_application.properties")
 
 public class AccountDaoTest {
-
 
     @Autowired
     private AccountDao accountDao;
@@ -47,8 +45,8 @@ public class AccountDaoTest {
     @Test
     public void testFindAllByUserUserId() {
         //Arrange
-        Accounts account1 = new Accounts("ACC001", "1", "Savings", 1000.0, "Branch A", Date.valueOf(LocalDate.now()), Date.valueOf(LocalDate.now()), user);
-        Accounts account2 = new Accounts("ACC002", "Current","2", 2000.0, "Branch B", Date.valueOf(LocalDate.now()), Date.valueOf(LocalDate.now()), user);
+        Accounts account1 = new Accounts("1", "1", "Savings", 1000.0, "Branch A", Date.valueOf(LocalDate.now()), Date.valueOf(LocalDate.now()), user);
+        Accounts account2 = new Accounts("2", "2","Savings", 2000.0, "Branch B", Date.valueOf(LocalDate.now()), Date.valueOf(LocalDate.now()), user);
         entityManager.persist(account1);
         entityManager.persist(account2);
         entityManager.flush();
