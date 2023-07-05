@@ -38,7 +38,6 @@ public class Users {
     @Setter
     private String address;
 
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Accounts> accountsList;
 
